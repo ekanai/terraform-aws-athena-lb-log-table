@@ -15,7 +15,14 @@ variable "location" {
   EOF
 }
 
-variable "year_range_from" {
-  type        = string
+variable "partiotion_year_range_from" {
+  type        = number
   description = "Year range from"
+  defafult    = 0
+}
+
+variable "partiion_year_range_to" {
+  type        = number
+  description = "Year range to"
+  default     = 0
 }

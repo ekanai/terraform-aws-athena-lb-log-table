@@ -15,7 +15,7 @@ resource "aws_glue_catalog_table" "table" {
     "projection.year.digits"    = "4",
     "projection.year.range"     = "${var.year_range_from},NOW",
     "projection.year.type"      = "integer",
-    "storage.location.template" = "${var.location}/${year}/${month}/${day}"
+    "storage.location.template" = "${var.location}/$${year}/$${month}/$${day}"
   }
 
   partition_keys {

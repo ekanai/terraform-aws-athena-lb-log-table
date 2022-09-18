@@ -6,7 +6,7 @@ It's actually Glue, but creates a table that can be queried with Athena.
 ```terraform
 module "athena-s3-log-table" {
   source  = "app.terraform.io/ekanai/athena-lb-log-table/aws"
-  version = "0.1.0"
+  version = "0.1.1"
 
   database_name = "created_database_name"
   location      = "s3_logging_location"

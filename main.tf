@@ -1,8 +1,8 @@
 resource "time_static" "now" {}
 
 locals {
-  partition_year_range_from = var.partition_year_range_from == 0 ? time_static.time.year - 3 : var.partition_year_range_from
-  partition_year_range_to   = var.partition_year_range_to == 0 ? time_static.time.year : var.partition_year_range_to
+  partition_year_range_from = var.partition_year_range_from == 0 ? time_static.now.year - 3 : var.partition_year_range_from
+  partition_year_range_to   = var.partition_year_range_to == 0 ? time_static.now.year : var.partition_year_range_to
 }
 
 resource "aws_glue_catalog_table" "table" {

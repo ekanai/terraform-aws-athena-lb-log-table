@@ -1,8 +1,8 @@
 resource "time_static" "now" {}
 
 locals {
-  partiotion_year_range_from = var.partiotion_year_range_from == 0 ? time_static.time.year - 3 : var.partiotion_year_range_from
-  partiion_year_range_to     = var.partiion_year_range_to == 0 ? time_static.time.year : var.partiion_year_range_to
+  partition_year_range_from = var.partition_year_range_from == 0 ? time_static.time.year - 3 : var.partition_year_range_from
+  partition_year_range_to   = var.partition_year_range_to == 0 ? time_static.time.year : var.partition_year_range_to
 }
 
 resource "aws_glue_catalog_table" "table" {
@@ -20,7 +20,7 @@ resource "aws_glue_catalog_table" "table" {
     "projection.month.range"    = "01,12",
     "projection.month.type"     = "integer",
     "projection.year.digits"    = "4",
-    "projection.year.range"     = "${var.year_range_from},${time_static.time.year}",
+    "projection.year.range"     = "${local.partition_year_range_from},${local.partition_year_range_to}",
     "projection.year.type"      = "integer",
     "storage.location.template" = "${var.location}/$${year}/$${month}/$${day}"
   }

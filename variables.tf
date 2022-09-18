@@ -15,13 +15,13 @@ variable "location" {
   EOF
 }
 
-variable "partiotion_year_range_from" {
+variable "partition_year_range_from" {
   type        = number
   description = "Year range from"
   default     = 0
 }
 
-variable "partiion_year_range_to" {
+variable "partition_year_range_to" {
   type        = number
   description = "Year range to"
   default     = 0
